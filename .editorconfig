@@ -17,14 +17,14 @@ trim_trailing_whitespace = true
 indent_style = tab
 quote_type = single
 curly_bracket_next_line = false
-spaces_around_operators = true
-space_after_control_statements = true
-space_after_anonymous_functions = false
-spaces_in_brackets = false
+tabs_around_operators = true
+tab_after_control_statements = true
+tab_after_anonymous_functions = false
+tabs_in_brackets = false
 
 # No Standard.  Please document a standard if different from .js
 [**.yml, **.html, **.css]
-trim_trailing_whitespace = true
+trim_trailing_whitetab = true
 indent_style = tab
 
 # No standard.  Please document a standard if different from .js
