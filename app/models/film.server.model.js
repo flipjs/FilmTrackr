@@ -10,10 +10,59 @@ var mongoose = require('mongoose'),
  * Film Schema
  */
 var FilmSchema = new Schema({
-	name: {
+	camera: {
 		type: String,
 		default: '',
-		required: 'Please fill Film name',
+		trim: true
+	},
+	catalog: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	film: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	type: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	iso: {
+		type: Number,
+		default: '',
+		trim: true
+	},
+	format: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	description: {
+		type: String,
+		default: '',
+		trim: true
+	},
+	start: {
+		type: Date,
+		default: '',
+		trim: true
+	},
+	finish: {
+		type: Date,
+		default: '',
+		trim: true
+	},
+	develop: {
+		type: Date,
+		default: '',
+		trim: true
+	},
+	scan: {
+		type: Date,
+		default: '',
 		trim: true
 	},
 	created: {

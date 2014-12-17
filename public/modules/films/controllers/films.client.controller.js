@@ -1,66 +1,100 @@
-'use strict';
+void (function() {
+  
+	'use strict';
 
-// Films controller
-angular.module('films').controller('FilmsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Films',
-	function($scope, $stateParams, $location, Authentication, Films) {
-		$scope.authentication = Authentication;
+	angular.module('films')
+		.controller('FilmsController', FilmsController)
+
+	FilmsController.$inject = ['$scope', '$stateParams', '$location', 'Authentication', 'Films']
+
+	function FilmsController($scope, $stateParams, $location, Authentication, Films) {
+
+		var self = this
+
+		$scope.authentication = Authentication
+
+		self.filmRoll = {}
 
 		// Create new Film
-		$scope.create = function() {
+		self.create = function() {
 			// Create new Film object
 			var film = new Films ({
-				name: this.name
-			});
+				camera      : self.filmRoll.camera,
+				catalog     : self.filmRoll.catalog,
+				film        : self.filmRoll.film,
+				type        : self.filmRoll.type,
+				iso         : self.filmRoll.iso,
+				format      : self.filmRoll.format,
+				description : self.filmRoll.description,
+				start       : self.filmRoll.start,
+				finish      : self.filmRoll.finish,
+				develop     : self.filmRoll.develop,
+				scan        : self.filmRoll.scan
+			})
 
 			// Redirect after save
 			film.$save(function(response) {
-				$location.path('films/' + response._id);
+				$location.path('films/' + response._id)
 
 				// Clear form fields
-				$scope.name = '';
+				self.filmRoll.camera = ''
+				self.filmRoll.catalog = ''
+				self.filmRoll.film = ''
+				self.filmRoll.type = ''
+				self.filmRoll.iso = ''
+				self.filmRoll.format = ''
+				self.filmRoll.description = ''
+				self.filmRoll.start = ''
+				self.filmRoll.finish = ''
+				self.filmRoll.develop = ''
+				self.filmRoll.scan = ''
+
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+				$scope.error = errorResponse.data.message
+			})
+		}
 
 		// Remove existing Film
-		$scope.remove = function(film) {
+		self.remove = function(film) {
 			if ( film ) { 
-				film.$remove();
+				film.$remove()
 
-				for (var i in $scope.films) {
-					if ($scope.films [i] === film) {
-						$scope.films.splice(i, 1);
+				for (var i in self.films) {
+					if (self.films [i] === film) {
+						self.films.splice(i, 1)
 					}
 				}
 			} else {
-				$scope.film.$remove(function() {
-					$location.path('films');
-				});
+				self.film.$remove(function() {
+					$location.path('films')
+				})
 			}
-		};
+		}
 
 		// Update existing Film
-		$scope.update = function() {
-			var film = $scope.film;
+		self.update = function() {
+			var film = self.film
 
 			film.$update(function() {
-				$location.path('films/' + film._id);
+				$location.path('films/' + film._id)
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
-			});
-		};
+				$scope.error = errorResponse.data.message
+			})
+		}
 
 		// Find a list of Films
-		$scope.find = function() {
-			$scope.films = Films.query();
-		};
+		self.find = function() {
+			self.films = Films.query()
+		}
 
 		// Find existing Film
-		$scope.findOne = function() {
-			$scope.film = Films.get({ 
+		self.findOne = function() {
+			self.film = Films.get({ 
 				filmId: $stateParams.filmId
-			});
-		};
+			})
+		}
+
+		$scope.FilmsCtrl= self
 	}
-]);
+
+})()

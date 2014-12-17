@@ -1,21 +1,21 @@
-<section data-ng-controller="FilmsController" data-ng-init="findOne()">
+<section data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.findOne()">
 	<div class="page-header">
-		<h1 data-ng-bind="film.name"></h1>
+		<h1 data-ng-bind="FilmsCtrl.film.camera"></h1>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == film.user._id))">
-		<a class="btn btn-primary" href="/#!/films/{{film._id}}/edit">
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == FilmsCtrl.film.user._id))">
+		<a class="btn btn-primary" href="/#!/films/{{FilmsCtrl.film._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
 		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
+		<a class="btn btn-primary" data-ng-click="FilmsCtrl.remove()">
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
 	<small>
 		<em class="text-muted">
 			Posted on
-			<span data-ng-bind="film.created | date:'mediumDate'"></span>
+			<span data-ng-bind="FilmsCtrl.film.created | date:'mediumDate'"></span>
 			by
-			<span data-ng-bind="film.user.displayName"></span>
+			<span data-ng-bind="FilmsCtrl.film.user.displayName"></span>
 		</em>
 	</small>
 </section>

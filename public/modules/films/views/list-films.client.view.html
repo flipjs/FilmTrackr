@@ -1,19 +1,19 @@
-<section data-ng-controller="FilmsController" data-ng-init="find()">
+<section data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.find()">
     <div class="page-header">
         <h1>Films</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="film in films" data-ng-href="#!/films/{{film._id}}" class="list-group-item">
+        <a data-ng-repeat="film in FilmsCtrl.films" data-ng-href="#!/films/{{film._id}}" class="list-group-item">
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="film.created | date:'medium'"></span>
 				by
 				<span data-ng-bind="film.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="film.name"></h4>
+			<h4 class="list-group-item-heading" data-ng-bind="film.camera"></h4>
         </a>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!films.$resolved || films.length">
+    <div class="alert alert-warning text-center" data-ng-hide="!FilmsCtrl.films.$resolved || FilmsCtrl.films.length">
     	No Films yet, why don't you <a href="/#!/films/create">create one</a>?
     </div>
 </section>
