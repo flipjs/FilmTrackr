@@ -1,21 +1,83 @@
-<section data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="FilmsCtrl.film.camera"></h1>
+<section class="ft-window" data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.findOne()">
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<h1>Film Roll</h1>
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<td>Camera</td>
+						<td>{{ FilmsCtrl.film.camera }}</td>
+					</tr>
+					<tr>
+						<td>Catalog Name</td>
+						<td>{{ FilmsCtrl.film.catalog }}</td>
+					</tr>
+					<tr>
+						<td>Film</td>
+						<td>{{ FilmsCtrl.film.film }}</td>
+					</tr>
+					<tr>
+						<td>Type</td>
+						<td>{{ FilmsCtrl.film.type }}</td>
+					</tr>
+					<tr>
+						<td>ISO</td>
+						<td>{{ FilmsCtrl.film.iso }}</td>
+					</tr>
+					<tr>
+						<td>Format</td>
+						<td>{{ FilmsCtrl.film.format }}</td>
+					</tr>
+					<tr>
+						<td>Description</td>
+						<td>{{ FilmsCtrl.film.description }}</td>
+					</tr>
+					<tr>
+						<td>Date started</td>
+						<td>{{ FilmsCtrl.film.start | date : format : timezone }}</td>
+					</tr>
+					<tr>
+						<td>Date finished</td>
+						<td>{{ FilmsCtrl.film.finish | date : format : timezone }}</td>
+					</tr>
+					<tr>
+						<td>Date developed</td>
+						<td>{{ FilmsCtrl.film.develop | date : format : timezone }}</td>
+					</tr>
+					<tr>
+						<td>Date scanned</td>
+						<td>{{ FilmsCtrl.film.scan | date : format : timezone }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == FilmsCtrl.film.user._id))">
-		<a class="btn btn-primary" href="/#!/films/{{FilmsCtrl.film._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="FilmsCtrl.remove()">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == FilmsCtrl.film.user._id))">
+				<a class="btn btn-primary" href="/#!/films/{{FilmsCtrl.film._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="FilmsCtrl.remove()">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+		</div>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="FilmsCtrl.film.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="FilmsCtrl.film.user.displayName"></span>
-		</em>
-	</small>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<small>
+				<em class="text-muted">
+					Posted on
+					<span data-ng-bind="FilmsCtrl.film.created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="FilmsCtrl.film.user.displayName"></span>
+				</em>
+			</small>
+		</div>
+	</div>
+
 </section>

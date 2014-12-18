@@ -3,6 +3,11 @@
 ## FilmTrackr Project
 Using Angular and Node.js (MEAN)
 
+## This app is for film camera enthusiasts, like me. Most of us, if not all,
+have plenty of film cameras in our gear stash. Sometimes we lost track which film is in our
+camera, and we need to know what kind, like film speed, is it B&W or color, is
+it a slide film, etc. This FilmTrackr is for you!
+
 ## License
 (The MIT License)
 

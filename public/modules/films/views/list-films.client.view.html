@@ -1,19 +1,23 @@
-<section data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.find()">
+<section class="ft-window" data-ng-controller="FilmsController" data-ng-init="FilmsCtrl.find()">
     <div class="page-header">
         <h1>Films</h1>
     </div>
     <div class="list-group">
         <a data-ng-repeat="film in FilmsCtrl.films" data-ng-href="#!/films/{{film._id}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="film.catalog"></h4>
+			<h5>{{ film.camera }} | {{ film.film }} | {{ film.description }}</h5>
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="film.created | date:'medium'"></span>
 				by
 				<span data-ng-bind="film.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="film.camera"></h4>
         </a>
     </div>
+    <div data-ng-show="!FilmsCtrl.films.$resolved || FilmsCtrl.films.length">
+		<a class="btn btn-primary" data-ng-href="/#!/films/create">+ New Roll</a>
+    </div>
     <div class="alert alert-warning text-center" data-ng-hide="!FilmsCtrl.films.$resolved || FilmsCtrl.films.length">
-    	No Films yet, why don't you <a href="/#!/films/create">create one</a>?
+    	No film in your camera? Go out and <a href="/#!/films/create">shoot</a>!
     </div>
 </section>

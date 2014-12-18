@@ -15,6 +15,39 @@ void (function() {
 
 		self.filmRoll = {}
 
+
+		// TODO: angular-ui-bootstrap datepicker
+		//
+		// self.dateObj = {}
+        //
+		// self.dateObj = (function(dateObj) {
+		// 	dateObj.today = function() {
+		// 		self.filmRoll.start = new Date();
+		// 	};
+		// 	dateObj.today();
+        //
+		// 	dateObj.clear = function () {
+		// 		dateObj.filmRoll.start = null;
+		// 	};
+        //
+		// 	dateObj.open = function($event) {
+		// 		$event.preventDefault();
+		// 		$event.stopPropagation();
+        //
+		// 		dateObj.opened = true;
+		// 	};
+        //
+		// 	dateObj.dateOptions = {
+		// 		formatYear: 'yy',
+		// 		startingDay: 1
+		// 	};
+        //
+		// 	return dateObj
+        //
+		// })(self.dateObj)
+        //
+
+
 		// Create new Film
 		self.create = function() {
 			// Create new Film object
@@ -94,7 +127,7 @@ void (function() {
 			})
 		}
 
-		$scope.FilmsCtrl= self
+		$scope.FilmsCtrl = self
 	}
 
 })()
