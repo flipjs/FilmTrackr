@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://dbuser:dbpass@kahana.mongohq.com:10081/flipjsdb',
+	db: 'mongodb://dbuser:dbpass@ds027491.mongolab.com:27491/flipjsdb',
 	app: {
 		title: 'FilmTrackr - Development Environment'
 	},

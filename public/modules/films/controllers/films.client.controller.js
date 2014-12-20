@@ -13,8 +13,6 @@ void (function() {
 
 		$scope.authentication = Authentication
 
-		self.filmRoll = {}
-
 
 		// TODO: angular-ui-bootstrap datepicker
 		//
@@ -47,6 +45,7 @@ void (function() {
 		// })(self.dateObj)
         //
 
+		self.filmRoll = {}
 
 		// Create new Film
 		self.create = function() {

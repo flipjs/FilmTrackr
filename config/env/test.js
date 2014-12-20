@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/filmtrackr-test',
+	db: 'mongodb://dbuser:dbpass@ds027491.mongolab.com:27491/flipjsdb',
 	port: 3001,
 	app: {
 		title: 'FilmTrackr - Test Environment'
