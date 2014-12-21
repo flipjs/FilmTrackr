@@ -13,38 +13,6 @@ void (function() {
 
 		$scope.authentication = Authentication
 
-
-		// TODO: angular-ui-bootstrap datepicker
-		//
-		// self.dateObj = {}
-        //
-		// self.dateObj = (function(dateObj) {
-		// 	dateObj.today = function() {
-		// 		self.filmRoll.start = new Date();
-		// 	};
-		// 	dateObj.today();
-        //
-		// 	dateObj.clear = function () {
-		// 		dateObj.filmRoll.start = null;
-		// 	};
-        //
-		// 	dateObj.open = function($event) {
-		// 		$event.preventDefault();
-		// 		$event.stopPropagation();
-        //
-		// 		dateObj.opened = true;
-		// 	};
-        //
-		// 	dateObj.dateOptions = {
-		// 		formatYear: 'yy',
-		// 		startingDay: 1
-		// 	};
-        //
-		// 	return dateObj
-        //
-		// })(self.dateObj)
-        //
-
 		self.filmRoll = {}
 
 		// Create new Film

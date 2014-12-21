@@ -7,19 +7,27 @@ angular.module('cameras').config(['$stateProvider',
 		$stateProvider.
 		state('listCameras', {
 			url: '/cameras',
-			templateUrl: 'modules/cameras/views/list-cameras.client.view.html'
+			template: '<section><list-cameras></list-cameras></section>',
+			controller: 'CamerasController',
+			controllerAs: 'ctrl'
 		}).
 		state('createCamera', {
 			url: '/cameras/create',
-			templateUrl: 'modules/cameras/views/create-camera.client.view.html'
+			template: '<section><create-camera create="ctrl.create(newCamera)"></create-camera></section>',
+			controller: 'CamerasController',
+			controllerAs: 'ctrl'
 		}).
 		state('viewCamera', {
 			url: '/cameras/:cameraId',
-			templateUrl: 'modules/cameras/views/view-camera.client.view.html'
+			template: '<section><view-camera></view-camera></section>',
+			controller: 'CamerasController',
+			controllerAs: 'ctrl'
 		}).
 		state('editCamera', {
 			url: '/cameras/:cameraId/edit',
-			templateUrl: 'modules/cameras/views/edit-camera.client.view.html'
+			template: '<section><edit-camera></edit-camera></section>',
+			controller: 'CamerasController',
+			controllerAs: 'ctrl'
 		});
 	}
 ]);

@@ -5,44 +5,46 @@ angular.module('cameras').controller('CamerasController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Cameras) {
 		$scope.authentication = Authentication;
 
+		var self = this
+
+		self.camera = {}
+
 		// Create new Camera
-		$scope.create = function() {
+		self.create = function(newCamera) {
 			// Create new Camera object
 			var camera = new Cameras ({
-				name: this.name
+				name: newCamera.name
 			});
 
 			// Redirect after save
 			camera.$save(function(response) {
 				$location.path('cameras/' + response._id);
 
-				// Clear form fields
-				$scope.name = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
 
 		// Remove existing Camera
-		$scope.remove = function(camera) {
+		self.remove = function(camera) {
 			if ( camera ) { 
 				camera.$remove();
 
-				for (var i in $scope.cameras) {
-					if ($scope.cameras [i] === camera) {
-						$scope.cameras.splice(i, 1);
+				for (var i in self.cameras) {
+					if (self.cameras [i] === camera) {
+						self.cameras.splice(i, 1);
 					}
 				}
 			} else {
-				$scope.camera.$remove(function() {
+				self.camera.$remove(function() {
 					$location.path('cameras');
 				});
 			}
 		};
 
 		// Update existing Camera
-		$scope.update = function() {
-			var camera = $scope.camera;
+		self.update = function() {
+			var camera = self.camera;
 
 			camera.$update(function() {
 				$location.path('cameras/' + camera._id);
@@ -52,13 +54,13 @@ angular.module('cameras').controller('CamerasController', ['$scope', '$statePara
 		};
 
 		// Find a list of Cameras
-		$scope.find = function() {
-			$scope.cameras = Cameras.query();
+		self.find = function() {
+			self.cameras = Cameras.query();
 		};
 
 		// Find existing Camera
-		$scope.findOne = function() {
-			$scope.camera = Cameras.get({ 
+		self.findOne = function() {
+			self.camera = Cameras.get({ 
 				cameraId: $stateParams.cameraId
 			});
 		};

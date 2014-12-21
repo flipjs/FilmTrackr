@@ -1,88 +1,75 @@
-<section class="ft-window" data-ng-controller="FilmsController">
+<section class="ft-window">
 <div class="row">
 	<div class="col-sm-6 col-sm-offset-3 col-xs-12">
 		<div class="page-header">
 			<h1>New Film Roll</h1>
 		</div>
-		<form class="" data-ng-submit="FilmsCtrl.create()" novalidate>
+		<form class="" data-ng-submit="vm.create()" novalidate>
 			<fieldset>
 				<div class="form-group">
 					<label class="control-label" for="camera">Camera</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.camera" id="camera" class="form-control" placeholder="Camera used..." required>
+						<input type="text" data-ng-model="vm.filmRoll.camera" id="camera" class="form-control" placeholder="Camera used..." required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Catalog</label>
+					<label class="control-label" for="catalog">Catalog</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.catalog" id="catalog" class="form-control" placeholder="Catalog name..." required>
+						<input type="text" data-ng-model="vm.filmRoll.catalog" id="catalog" class="form-control" placeholder="Catalog name..." required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Film</label>
+					<label class="control-label" for="film">Film</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.film" id="film" class="form-control" placeholder="Film used..." required>
+						<input type="text" data-ng-model="vm.filmRoll.film" id="film" class="form-control" placeholder="Film used..." required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Type</label>
+					<label class="control-label" for="type">Type</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.type" id="type" class="form-control" placeholder="Type of negative/slide...">
+						<input type="text" data-ng-model="vm.filmRoll.type" id="type" class="form-control" placeholder="Type of negative/slide...">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">ISO</label>
+					<label class="control-label" for="iso">ISO</label>
 					<div class="controls">
-						<input type="number" data-ng-model="FilmsCtrl.filmRoll.iso" id="iso" class="form-control" placeholder="ISO number..." required>
+						<input type="number" data-ng-model="vm.filmRoll.iso" id="iso" class="form-control" placeholder="ISO number..." required>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Format</label>
+					<label class="control-label" for="format">Format</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.format" id="format" class="form-control" placeholder="Film format...">
+						<input type="text" data-ng-model="vm.filmRoll.format" id="format" class="form-control" placeholder="Film format...">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Description</label>
+					<label class="control-label" for="description">Description</label>
 					<div class="controls">
-						<input type="text" data-ng-model="FilmsCtrl.filmRoll.description" id="description" class="form-control" placeholder="Description of event...">
-					</div>
-				</div>
-
-
-				<!-- TODO: angular-ui datepicker  -->
-				<!-- <div class="form&#45;group"> -->
-					<!--	 <div class="input&#45;group"> -->
-						<!--		 <input type="text" class="form&#45;control" datepicker&#45;popup="MM/dd/yyyy" data&#45;ng&#45;model="FilmsCtrl.filmRoll.start" is&#45;open="FilmsCtrl.dateObj.opened" datepicker&#45;options="FilmsCtrl.dateObj.dateOptions" close&#45;text="Close" /> -->
-						<!--		 <span class="input&#45;group&#45;btn"> -->
-							<!--			 <button type="button" class="btn btn&#45;default" data&#45;ng&#45;click="FilmsCtrl.dateObj.open($event)"><i class="glyphicon glyphicon&#45;calendar"></i></button> -->
-							<!--		 </span> -->
-						<!--	 </div> -->
-					<!-- </div> -->
-
-
-				<div class="form-group">
-					<label class="control-label" for="name">Start</label>
-					<div class="controls">
-						<input type="date" data-ng-model="FilmsCtrl.filmRoll.start" id="start" class="form-control" placeholder="Date of first use...">
+						<input type="text" data-ng-model="vm.filmRoll.description" id="description" class="form-control" placeholder="Description of event...">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Finish</label>
+					<label class="control-label" for="start">Start</label>
 					<div class="controls">
-						<input type="date" data-ng-model="FilmsCtrl.filmRoll.finish" id="finish" class="form-control" placeholder="Date finished...">
+						<input type="date" data-ng-model="vm.filmRoll.start" id="start" class="form-control" placeholder="Date of first use...">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Develop</label>
+					<label class="control-label" for="finish">Finish</label>
 					<div class="controls">
-						<input type="date" data-ng-model="FilmsCtrl.filmRoll.develop" id="develop" class="form-control" placeholder="Date film was developed...">
+						<input type="date" data-ng-model="vm.filmRoll.finish" id="finish" class="form-control" placeholder="Date finished...">
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label" for="name">Scan</label>
+					<label class="control-label" for="develop">Develop</label>
 					<div class="controls">
-						<input type="date" data-ng-model="FilmsCtrl.filmRoll.scan" id="scan" class="form-control" placeholder="Date fill was scanned...">
+						<input type="date" data-ng-model="vm.filmRoll.develop" id="develop" class="form-control" placeholder="Date film was developed...">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="scan">Scan</label>
+					<div class="controls">
+						<input type="date" data-ng-model="vm.filmRoll.scan" id="scan" class="form-control" placeholder="Date fill was scanned...">
 					</div>
 				</div>
 				<div class="form-group">

@@ -11,7 +11,9 @@ angular.module('films').config(['$stateProvider',
 		}).
 		state('createFilm', {
 			url: '/films/create',
-			templateUrl: 'modules/films/views/create-film.client.view.html'
+			templateUrl: 'modules/films/views/create-film.client.view.html',
+			controller: 'FilmsController',
+			controllerAs: 'vm'
 		}).
 		state('viewFilm', {
 			url: '/films/:filmId',
