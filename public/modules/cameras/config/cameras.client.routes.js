@@ -7,7 +7,7 @@ angular.module('cameras').config(['$stateProvider',
 		$stateProvider.
 		state('listCameras', {
 			url: '/cameras',
-			template: '<section><list-cameras></list-cameras></section>',
+			template: '<section data-ng-init="ctrl.find()"><list-cameras cameras="ctrl.cameras"></list-cameras></section>',
 			controller: 'CamerasController',
 			controllerAs: 'ctrl'
 		}).
@@ -19,7 +19,7 @@ angular.module('cameras').config(['$stateProvider',
 		}).
 		state('viewCamera', {
 			url: '/cameras/:cameraId',
-			template: '<section><view-camera></view-camera></section>',
+			template: '<section data-ng-init="ctrl.findOne()"><view-camera camera="ctrl.camera"></view-camera></section>',
 			controller: 'CamerasController',
 			controllerAs: 'ctrl'
 		}).

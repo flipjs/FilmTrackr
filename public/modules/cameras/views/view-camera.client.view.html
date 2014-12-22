@@ -1,21 +1,50 @@
-<section data-ng-controller="CamerasController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="camera.name"></h1>
+<div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<h1>Camera</h1>
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<td>Model</td>
+						<td>{{ viewCtrl.camera.cameraModel }}</td>
+					</tr>
+					<tr>
+						<td>Fixed Lens?</td>
+						<td>{{ viewCtrl.camera.fixedLens }}</td>
+					</tr>
+					<tr>
+						<td>Active?</td>
+						<td>{{ viewCtrl.camera.active }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == camera.user._id))">
-		<a class="btn btn-primary" href="/#!/cameras/{{camera._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<div class="pull-right" data-ng-show="((ctrl.authentication.user) && (ctrl.authentication.user._id == viewCtrl.camera.user._id))">
+				<a class="btn btn-primary" href="/#!/cameras/{{viewCtrl.camera._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" data-ng-click="ctrl.remove()">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+		</div>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="camera.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="camera.user.displayName"></span>
-		</em>
-	</small>
-</section>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
+			<small>
+				<em class="text-muted">
+					Posted on
+					<span data-ng-bind="viewCtrl.camera.created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="viewCtrl.camera.user.displayName"></span>
+				</em>
+			</small>
+		</div>
+	</div>
+</div>
+

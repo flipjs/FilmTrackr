@@ -9,6 +9,7 @@ angular.module('cameras').controller('CamerasController', ['$stateParams', '$loc
 		self.authentication = Authentication;
 
 		self.camera = {}
+		self.cameras = []
 
 		// Create new Camera
 		self.create = function(newCamera) {

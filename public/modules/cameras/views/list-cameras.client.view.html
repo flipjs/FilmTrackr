@@ -1,19 +1,19 @@
-<section data-ng-controller="CamerasController" data-ng-init="find()">
+<div>
     <div class="page-header">
         <h1>Cameras</h1>
     </div>
     <div class="list-group">
-        <a data-ng-repeat="camera in cameras" data-ng-href="#!/cameras/{{camera._id}}" class="list-group-item">
+        <a data-ng-repeat="camera in listCtrl.cameras" data-ng-href="#!/cameras/{{camera._id}}" class="list-group-item">
+			<h4 class="list-group-item-heading" data-ng-bind="camera.cameraModel"></h4>
 			<small class="list-group-item-text">
 				Posted on
 				<span data-ng-bind="camera.created | date:'medium'"></span>
 				by
 				<span data-ng-bind="camera.user.displayName"></span>
 			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="camera.name"></h4>
         </a>
     </div>
-    <div class="alert alert-warning text-center" data-ng-hide="!cameras.$resolved || cameras.length">
+    <div class="alert alert-warning text-center" data-ng-hide="!listCtrl.cameras.$resolved || listCtrl.cameras.length">
     	No Cameras yet, why don't you <a href="/#!/cameras/create">create one</a>?
     </div>
-</section>
+</div>
