@@ -10,11 +10,21 @@ var mongoose = require('mongoose'),
  * Camera Schema
  */
 var CameraSchema = new Schema({
-	name: {
+	cameraModel: {
 		type: String,
 		default: '',
-		required: 'Please fill Camera name',
+		required: true,
 		trim: true
+	},
+	active: {
+		type: Boolean,
+		default: true,
+		required: true
+	},
+	fixedLens: {
+		type: Boolean,
+		default: true,
+		required: true
 	},
 	created: {
 		type: Date,

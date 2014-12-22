@@ -6,9 +6,21 @@
 		<form class="form-horizontal" data-ng-submit="createCtrl.create()" novalidate>
 			<fieldset>
 				<div class="form-group">
-					<label class="control-label" for="name">Name</label>
+					<label class="control-label" for="cameraModel">Camera Model</label>
 					<div class="controls">
-						<input type="text" data-ng-model="createCtrl.camera.name" id="name" class="form-control" placeholder="Name" required>
+						<input type="text" data-ng-model="createCtrl.camera.cameraModel" id="cameraModel" class="form-control" placeholder="" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="active">Active?</label>
+					<div class="controls">
+						<input type="checkbox" data-ng-model="createCtrl.camera.active" id="active" class="form-control" placeholder="" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label" for="fixedLens">Fixed Lens?</label>
+					<div class="controls">
+						<input type="checkbox" data-ng-model="createCtrl.camera.fixedLens" id="fixedLens" class="form-control" placeholder="" required>
 					</div>
 				</div>
 				<div class="form-group">

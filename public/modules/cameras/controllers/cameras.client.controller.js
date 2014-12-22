@@ -1,11 +1,12 @@
 'use strict';
 
 // Cameras controller
-angular.module('cameras').controller('CamerasController', ['$scope', '$stateParams', '$location', 'Authentication', 'Cameras',
-	function($scope, $stateParams, $location, Authentication, Cameras) {
-		$scope.authentication = Authentication;
+angular.module('cameras').controller('CamerasController', ['$stateParams', '$location', 'Authentication', 'Cameras',
+	function($stateParams, $location, Authentication, Cameras) {
 
 		var self = this
+
+		self.authentication = Authentication;
 
 		self.camera = {}
 
@@ -13,7 +14,9 @@ angular.module('cameras').controller('CamerasController', ['$scope', '$statePara
 		self.create = function(newCamera) {
 			// Create new Camera object
 			var camera = new Cameras ({
-				name: newCamera.name
+				cameraModel: newCamera.cameraModel,
+				active: newCamera.active,
+				fixedLens: newCamera.fixedLens
 			});
 
 			// Redirect after save
@@ -21,7 +24,7 @@ angular.module('cameras').controller('CamerasController', ['$scope', '$statePara
 				$location.path('cameras/' + response._id);
 
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
+				self.error = errorResponse.data.message;
 			});
 		};
 
@@ -49,7 +52,7 @@ angular.module('cameras').controller('CamerasController', ['$scope', '$statePara
 			camera.$update(function() {
 				$location.path('cameras/' + camera._id);
 			}, function(errorResponse) {
-				$scope.error = errorResponse.data.message;
+				self.error = errorResponse.data.message;
 			});
 		};
 

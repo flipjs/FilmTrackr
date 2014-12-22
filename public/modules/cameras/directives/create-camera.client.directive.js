@@ -25,9 +25,19 @@ void (function() {
 
 		self.camera = {}
 
+		function resetCamera() {
+			self.camera = {
+				cameraModel: '',
+				active: true,
+				fixedLens: false
+			}
+		}
+
+		resetCamera()
+
 		self.create = function create() {
 			$scope.create({newCamera: self.camera})
-			self.camera = {}
+			resetCamera()
 		}
 	}
 
