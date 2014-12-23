@@ -23,11 +23,11 @@
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-offset-2 col-sm-8">
-			<div class="pull-right" data-ng-show="((ctrl.authentication.user) && (ctrl.authentication.user._id == viewCtrl.camera.user._id))">
+			<div class="pull-right" data-ng-show="((viewCtrl.authentication.user) && (viewCtrl.authentication.user._id == viewCtrl.camera.user._id))">
 				<a class="btn btn-primary" href="/#!/cameras/{{viewCtrl.camera._id}}/edit">
 					<i class="glyphicon glyphicon-edit"></i>
 				</a>
-				<a class="btn btn-primary" data-ng-click="ctrl.remove()">
+				<a class="btn btn-primary" data-ng-click="viewCtrl.remove()">
 					<i class="glyphicon glyphicon-trash"></i>
 				</a>
 			</div>

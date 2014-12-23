@@ -1,8 +1,12 @@
-'use strict';
+void (function() {
 
-//Setting up route
-angular.module('cameras').config(['$stateProvider',
-	function($stateProvider) {
+	'use strict';
+
+	//Setting up route
+	angular.module('cameras').config(routeConfig)
+
+	routeConfig.$inject = ['$stateProvider']
+	function routeConfig($stateProvider) {
 		// Cameras state routing
 		$stateProvider.
 		state('listCameras', {
@@ -19,7 +23,7 @@ angular.module('cameras').config(['$stateProvider',
 		}).
 		state('viewCamera', {
 			url: '/cameras/:cameraId',
-			template: '<section data-ng-init="ctrl.findOne()"><view-camera camera="ctrl.camera"></view-camera></section>',
+			template: '<section data-ng-init="ctrl.findOne()"><view-camera camera="ctrl.camera" remove="ctrl.remove(camera)"></view-camera></section>',
 			controller: 'CamerasController',
 			controllerAs: 'ctrl'
 		}).
@@ -28,6 +32,7 @@ angular.module('cameras').config(['$stateProvider',
 			template: '<section><edit-camera></edit-camera></section>',
 			controller: 'CamerasController',
 			controllerAs: 'ctrl'
-		});
+		})
 	}
-]);
+
+})()

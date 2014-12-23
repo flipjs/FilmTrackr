@@ -10,7 +10,8 @@ void (function() {
 		return {
 			restrict: 'E',
 			scope: {
-				camera: '='
+				camera: '=',
+				remove: '&'
 			},
 			replace: true,
 			templateUrl: 'modules/cameras/views/view-camera.client.view.html',
@@ -19,10 +20,15 @@ void (function() {
 		}
 	}
 
-	ViewCameraController.$inject = ['$scope']
-	function ViewCameraController($scope) {
+	ViewCameraController.$inject = ['$scope', 'Authentication']
+	function ViewCameraController($scope, Authentication) {
 		var self = this
+		self.authentication = Authentication
 		self.camera = $scope.camera
+
+		self.remove = function remove() {
+			$scope.remove({camera: self.camera})
+		}
 	}
 
 })()
