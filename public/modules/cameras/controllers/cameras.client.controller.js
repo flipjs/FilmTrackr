@@ -31,15 +31,14 @@ angular.module('cameras').controller('CamerasController', ['$stateParams', '$loc
 
 		// Remove existing Camera
 		self.remove = function(camera) {
-			console.log(camera)
 			if ( camera ) { 
 				camera.$remove()
-
-				for (var i in self.cameras) {
-					if (self.cameras [i] === camera) {
-						self.cameras.splice(i, 1)
-					}
-				}
+				self.find()
+				// for (var i in self.cameras) {
+				// 	if (self.cameras [i] === camera) {
+				// 		self.cameras.splice(i, 1)
+				// 	}
+				// }
 				$location.path('cameras')
 			} else {
 				self.camera.$remove(function() {

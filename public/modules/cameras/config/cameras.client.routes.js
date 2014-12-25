@@ -29,7 +29,7 @@ void (function() {
 		}).
 		state('editCamera', {
 			url: '/cameras/:cameraId/edit',
-			template: '<section><edit-camera></edit-camera></section>',
+			template: '<section data-ng-init="ctrl.findOne()"><edit-camera camera="ctrl.camera" edit="ctrl.update(camera)"></edit-camera></section>',
 			controller: 'CamerasController',
 			controllerAs: 'ctrl'
 		})
