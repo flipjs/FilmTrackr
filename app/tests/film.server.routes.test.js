@@ -16,7 +16,7 @@ var credentials, user, film;
 /**
  * Film routes tests
  */
-describe('Film CRUD tests', function() {
+xdescribe('Film CRUD tests', function() {
 	beforeEach(function(done) {
 		// Create user credentials
 		credentials = {

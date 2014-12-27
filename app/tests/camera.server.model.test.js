@@ -29,7 +29,9 @@ describe('Camera Model Unit Tests:', function() {
 
 		user.save(function() { 
 			camera = new Camera({
-				name: 'Camera Name',
+				cameraModel: 'Camera Name',
+				active: true,
+				fixedLens: true,
 				user: user
 			});
 
@@ -46,7 +48,7 @@ describe('Camera Model Unit Tests:', function() {
 		});
 
 		it('should be able to show an error when try to save without name', function(done) { 
-			camera.name = '';
+			camera.cameraModel = '';
 
 			return camera.save(function(err) {
 				should.exist(err);

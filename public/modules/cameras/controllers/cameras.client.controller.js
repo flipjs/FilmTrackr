@@ -15,9 +15,9 @@ angular.module('cameras').controller('CamerasController', ['$stateParams', '$loc
 		self.create = function(newCamera) {
 			// Create new Camera object
 			var camera = new Cameras ({
-				cameraModel: newCamera.cameraModel,
-				active: newCamera.active,
-				fixedLens: newCamera.fixedLens
+				cameraModel : newCamera.cameraModel,
+				active      : newCamera.active,
+				fixedLens   : newCamera.fixedLens
 			})
 
 			// Redirect after save
