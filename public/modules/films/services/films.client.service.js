@@ -27,6 +27,16 @@ void (function() {
 		}, {
 			update: {
 				method: 'PUT'
+			},
+			get: {
+				method: 'GET',
+				transformResponse: function(data) {
+					var film = angular.fromJson(data)
+					void ['start', 'finish', 'develop', 'scan'].map(function(item) {
+						film[item] = film[item] && film[item].slice(0, 10)
+					})
+					return film
+				}
 			}
 		})
 	}
